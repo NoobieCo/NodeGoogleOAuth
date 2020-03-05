@@ -1,2 +1,0 @@
-# NodeGoogleOAuth
-Created with CodeSandbox
