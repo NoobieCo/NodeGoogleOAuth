@@ -37,10 +37,6 @@ app.get(
 
 app.get("/auth/google/callback", passport.authenticate("google"));
 
-//ClientId-614284390318-v0cupnr22tt756allu1v3pokis00io9c.apps.googleusercontent.com
-
-//ClientSecret-nWMk4MLlvvof62fPte2e9cUH
-
 app.get("/greeting", (req, res) => {
   res.send({ bye: "sagar" });
 });
