@@ -1,20 +1,13 @@
 const express = require("express");
-
 const passport = require("passport");
-
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-
 const keys = require("./config/keys");
-
 const app = express();
-
 passport.use(
   new GoogleStrategy(
     {
       clientID: keys.googleClientID,
-
       clientSecret: keys.googleClientSecret,
-
       callbackURL: "/auth/google/callback"
     },
 
@@ -23,11 +16,9 @@ passport.use(
     }
   )
 );
-
 app.get("/", (req, res) => {
   res.send({ hi: "sagar" });
 });
-
 app.get(
   "/auth/google",
   passport.authenticate("google", {
@@ -36,15 +27,8 @@ app.get(
 );
 
 app.get("/auth/google/callback", passport.authenticate("google"));
-
-//ClientId-614284390318-v0cupnr22tt756allu1v3pokis00io9c.apps.googleusercontent.com
-
-//ClientSecret-nWMk4MLlvvof62fPte2e9cUH
-
 app.get("/greeting", (req, res) => {
   res.send({ bye: "sagar" });
 });
-
 const PORT = process.env.PORT || 5000;
-
 app.listen(PORT);
